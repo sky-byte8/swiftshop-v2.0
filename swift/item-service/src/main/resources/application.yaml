@@ -1,0 +1,8 @@
+server:
+  port: 8081
+swift:
+  db:
+    database: swift-item
+  swagger:
+    title: "SwiftShop商品服务接口文档"
+    package: com.swiftshop.item.controller

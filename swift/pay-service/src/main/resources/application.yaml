@@ -1,0 +1,12 @@
+server:
+  port: 8086
+swift:
+  db:
+    database: swift-pay
+  swagger:
+    title: "SwiftShop支付管理接口文档"
+    package: com.swiftshop.pay.controller
+
+feign:
+  okhttp:
+    enabled: true

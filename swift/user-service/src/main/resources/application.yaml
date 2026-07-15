@@ -1,0 +1,20 @@
+server:
+  port: 8087
+swift:
+  db:
+    database: swift-user
+  swagger:
+    title: "SwiftShop用户管理接口文档"
+    package: com.swiftshop.user.controller
+  jwt:
+    location: classpath:swiftshop.jks
+    alias: swiftshop
+    password: 123456
+    tokenTTL: 30m
+  auth:
+    excludePaths:
+      - /search/**
+      - /users/login
+      - /items/**
+      - /hi
+# keytool -genkeypair -alias swiftshop -keyalg RSA -keypass swiftshop123 -keystore swiftshop.jks -storepass 123456

@@ -1,0 +1,33 @@
+# Claude
+.claude/
+
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+*.log
+
+# Node
+node_modules/
+dist/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Nginx runtime
+swift-nginx/logs/
+swift-nginx/temp/
+
+# App logs
+swift/logs/
+
+# Env files
+.env
+.env.local

@@ -1,0 +1,1 @@
+function i(r){if(!(r!=null&&r.trim()))return{};try{const t=JSON.parse(r);return!t||Array.isArray(t)||typeof t!="object"?{}:Object.fromEntries(Object.entries(t).filter(([,e])=>["string","number","boolean"].includes(typeof e)).map(([e,n])=>[e,String(n)]))}catch{return{}}}export{i as p};

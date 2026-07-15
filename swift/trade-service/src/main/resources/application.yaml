@@ -1,0 +1,8 @@
+server:
+  port: 8085
+swift:
+  db:
+    database: swift-trade
+  swagger:
+    title: "SwiftShop交易服务接口文档"
+    package: com.swiftshop.trade.controller

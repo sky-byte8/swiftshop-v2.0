@@ -1,0 +1,52 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: swift-service
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://${swift.db.host}:3306/swiftshop?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: ${swift.db.pw}
+
+mybatis-plus:
+  configuration:
+    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+  global-config:
+    db-config:
+      update-strategy: not_null
+      id-type: auto
+logging:
+  level:
+    com.swiftshop: debug
+  pattern:
+    dateformat: HH:mm:ss:SSS
+  file:
+    path: "logs/${spring.application.name}"
+knife4j:
+  enable: true
+  openapi:
+    title: SwiftShop接口文档
+    description: "SwiftShop接口文档"
+    version: v1.0.0
+    group:
+      default:
+        group-name: default
+        api-rule: package
+        api-rule-resources:
+          - com.swiftshop.controller
+swift:
+  jwt:
+    location: classpath:swiftshop.jks
+    alias: swiftshop
+    password: swiftshop123
+    tokenTTL: 30m
+  auth:
+    excludePaths:
+      - /search/**
+      - /users/login
+      - /items/**
+      - /hi
+# keytool -genkeypair -alias swiftshop -keyalg RSA -keypass swiftshop123 -keystore swiftshop.jks -storepass swiftshop123

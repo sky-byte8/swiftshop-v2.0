@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.swiftshop.common.config.MyBatisConfig,\
+  com.swiftshop.common.config.MvcConfig,\
+  com.swiftshop.common.config.MqConfig,\
+  com.swiftshop.common.config.JsonConfig
