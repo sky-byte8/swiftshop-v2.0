@@ -16,9 +16,12 @@ npm run preview      # Vite preview on port 4173
 
 ### Backend (swift/)
 ```sh
-mvn clean install    # Build all Maven modules (Java 11)
+mvn clean install              # Build all Maven modules (Java 11)
+mvn clean install -DskipTests  # Skip tests for faster build
 ```
 Run individual services via their `*Application.java` main class in IDE or `java -jar target/*.jar`. Each service needs Nacos running at `192.168.121.128:8848`.
+
+Each service has `application-dev.yaml` (dev profile) and `application-local.yaml` (local profile). Activate with `spring.profiles.active=local` or `-Dspring.profiles.active=local`.
 
 ### Run a single frontend test
 ```sh
@@ -103,3 +106,11 @@ Three server blocks: portal (18080, SPA with `try_files` fallback), admin (18081
 - **Enum-driven state** — e.g., `UserStatus`, `PayStatus`, `PayType` with `@EnumValue` for MyBatis-Plus
 - **Global interceptors** — `UserInfoInterceptor` in common module, gateway-level auth via `MyGlobalFilter`
 - **Ponytail mode** — prefer the minimal solution, avoid over-engineering, YAGNI
+
+## Windows Notes
+
+This project is developed on Windows. Git will warn about LF→CRLF conversions on first commit — configure with:
+```
+git config core.autocrlf true
+```
+This ensures consistent line endings when checking out on Windows vs pushing to remote.
